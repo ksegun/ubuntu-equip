@@ -66,10 +66,10 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     # install java
-    wget --no-check-certificate -q0- https://github.com/ksegun/ubuntu-equip/raw/master/equip_java8.sh | sudo bash -
+    wget --no-check-certificate -qO- https://github.com/ksegun/ubuntu-equip/raw/master/equip_java8.sh | sudo bash -
 
     # install docker-compose
-    wget --no-check-certificate -q0- https://github.com/ksegun/ubuntu-equip/raw/master/equip_docker_compose.sh | sudo bash -
+    wget --no-check-certificate -qO- https://github.com/ksegun/ubuntu-equip/raw/master/equip_docker_compose.sh | sudo bash -
 
     # add vagrant user to docker group
     sudo usermod -aG docker vagrant
