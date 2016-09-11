@@ -66,19 +66,15 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     # install java
-    wget --no-check-certificate https://github.com/ksegun/ubuntu-equip/raw/master/equip_java8.sh && bash equip_java8.sh
+    wget --no-check-certificate -q0- https://github.com/ksegun/ubuntu-equip/raw/master/equip_java8.sh | sudo bash -
 
-    # install docker
-    wget --no-check-certificate https://github.com/ksegun/ubuntu-equip/raw/master/equip_docker.sh && bash equip_docker.sh
-    
     # install docker-compose
-    wget --no-check-certificate https://github.com/ksegun/ubuntu-equip/raw/master/equip_docker_compose.sh && bash equip_docker_compose.sh
-  
+    wget --no-check-certificate -q0- https://github.com/ksegun/ubuntu-equip/raw/master/equip_docker_compose.sh | sudo bash -
+
     # add vagrant user to docker group
     sudo usermod -aG docker vagrant
 
-    #update node
-    wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash -
-    sudo apt-get install -y nodejs
+    #install node 4.x
+    wget --no-check-certificate -qO- https://github.com/ksegun/ubuntu-equip/raw/master/equip_node4x.sh | sudo bash -
   SHELL
 end
