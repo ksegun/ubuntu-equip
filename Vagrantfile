@@ -76,5 +76,8 @@ Vagrant.configure(2) do |config|
 
     #install node 4.x
     wget --no-check-certificate -qO- https://github.com/ksegun/ubuntu-equip/raw/master/equip_node4x.sh | sudo bash -
+
+    #install postgresql
+    wget --no-check-certificate -qO- https://github.com/ksegun/ubuntu-equip/raw/master/equip_postgres.sh | sudo bash -
   SHELL
 end
